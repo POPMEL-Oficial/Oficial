@@ -368,7 +368,7 @@
                   ></div
                 ></div
               ><a
-                href="https://t.me/Bal032"
+                href="https://t.me/luizgabs13"
                 target="_blank"
                 rel="noreferrer noopener"
                 class="navbar8-link13"
@@ -403,6 +403,7 @@
                 ></div
               ><div class="hero17-actions"
                 ><a
+                  id="loginButton1"
                   href="https://popmel33.com/main/inicio?ch=25837"
                   target="_blank"
                   rel="noreferrer noopener"
@@ -413,7 +414,8 @@
                     ></span
                   ></a
                 ><a
-                  href="https://popmel33.com/main/inicio?ch=25837'"
+                  id="registroButton1"
+                  href="https://popmel33.com/main/inicio?ch=25837"
                   target="_blank"
                   rel="noreferrer noopener"
                   class="hero17-button2 thq-button-outline"
@@ -601,7 +603,8 @@
                       ><div class="pricing3-list-item18"></div
                       ><div class="pricing3-list-item19"></div></div></div></div
                 ><a
-                  href="https://t.me/raphaels23"
+                  id="mentorContatoButton1"
+                  href="https://t.me/luizgabs13"
                   target="_blank"
                   rel="noreferrer noopener"
                   class="pricing3-button thq-button-filled"
@@ -756,6 +759,7 @@
                   ></div
                 ></div
               ><a
+                id="registroButton2"
                 href="https://popmel33.com/main/inicio?ch=25837"
                 target="_blank"
                 rel="noreferrer noopener"
@@ -774,5 +778,38 @@
     <script
       defer=""
       src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
-    ></script></body
+    ></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Helper function to attach event listeners
+        function addButtonListener(buttonId, eventName, isCustom) {
+          const button = document.getElementById(buttonId);
+          if (button) {
+            button.addEventListener('click', function() {
+              if (isCustom) {
+                fbq('trackCustom', eventName);
+              } else {
+                fbq('track', eventName);
+              }
+              console.log('FB Pixel event tracked: ' + eventName + ' for button ID: ' + buttonId);
+            });
+          } else {
+            console.warn('Button with ID ' + buttonId + ' not found for FB Pixel tracking.');
+          }
+        }
+
+        // Track Login Button
+        addButtonListener('loginButton1', 'LoginButtonClick', true);
+
+        // Track Registro Button 1
+        addButtonListener('registroButton1', 'CompleteRegistration', false);
+
+        // Track Mentor de Contato Button
+        addButtonListener('mentorContatoButton1', 'Contact', false);
+
+        // Track Registro Button 2
+        addButtonListener('registroButton2', 'CompleteRegistration', false);
+      });
+    </script>
+  </body
 ></html>
