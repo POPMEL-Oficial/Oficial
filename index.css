@@ -585,8 +585,12 @@
     padding-right: var(--dl-layout-space-twounits);
   }
   .navbar8-burger-menu {
+    display: flex;
     align-items: center;
     justify-content: center;
+  }
+  .navbar8-desktop-menu {
+    display: none;
   }
   .navbar8-mobile-menu {
     padding-top: var(--dl-layout-space-oneandhalfunits);
