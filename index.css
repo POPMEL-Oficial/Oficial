@@ -1,3 +1,45 @@
+:root {
+  --dl-layout-size-large: 144px;
+  --dl-layout-size-small: 48px;
+  --dl-layout-space-unit: 16px;
+  --dl-layout-size-medium: 96px;
+  --dl-layout-size-xlarge: 192px;
+  --dl-layout-size-xsmall: 16px;
+  --dl-color-theme-accent1: #FFFFFF;
+  --dl-color-theme-accent2: #F5D1B0;
+  --dl-layout-radius-round: 50%;
+  --dl-layout-size-xxlarge: 288px;
+  --dl-color-theme-primary1: #BF4408;
+  --dl-color-theme-primary2: #E65103;
+  --dl-layout-size-maxwidth: 1400px;
+  --dl-layout-radius-radius2: 2px;
+  --dl-layout-radius-radius4: 4px;
+  --dl-layout-radius-radius8: 8px;
+  --dl-layout-space-halfunit: 8px;
+  --dl-layout-space-sixunits: 96px;
+  --dl-layout-space-twounits: 32px;
+  --dl-color-theme-secondary1: #FFFFFF;
+  --dl-color-theme-secondary2: #FBF1EB;
+  --dl-layout-space-fiveunits: 80px;
+  --dl-layout-space-fourunits: 64px;
+  --dl-layout-space-threeunits: 48px;
+  --dl-color-theme-neutral-dark: #191818;
+  --dl-layout-radius-cardradius: 8px;
+  --dl-color-theme-neutral-light: #FBFAF9;
+  --dl-layout-radius-imageradius: 8px;
+  --dl-layout-radius-inputradius: 24px;
+  --dl-layout-radius-buttonradius: 24px;
+  --dl-layout-space-oneandhalfunits: 24px;
+}
+
+/* Fixed button styles for all anchor links and buttons to be clickable */
+a[href], button, .thq-button-filled, .thq-button-outline {
+  position: relative;
+  z-index: 100;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
 .navbar8-wrapper {
   display: contents;
 }
@@ -437,6 +479,7 @@
   position: fixed;
   align-items: flex-start;
   flex-direction: column;
+  pointer-events: none;
 }
  
 .home-fragment15 {
@@ -633,12 +676,12 @@
 }
  
 .hero17-column {
-  gap: var(--dl-layout-space-oneandhalfunits);
-  width: auto;
+  gap: var(--dl-layout-space-threeunits);
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding-bottom: var(--dl-layout-space-unit);
+  position: relative;
+  z-index: 10;
 }
  
 .hero17-content1 {
@@ -666,10 +709,30 @@
  
 .hero17-button1 {
   text-decoration: none;
+  cursor: pointer;
+  color: var(--dl-color-theme-secondary1);
+  position: relative;
+  z-index: 100;
+  pointer-events: auto;
 }
- 
+
+.hero17-button1:hover {
+  color: var(--dl-color-theme-secondary2);
+  opacity: 0.9;
+}
+
 .hero17-button2 {
   text-decoration: none;
+  cursor: pointer;
+  color: var(--dl-color-theme-primary1);
+  position: relative;
+  z-index: 100;
+  pointer-events: auto;
+}
+
+.hero17-button2:hover {
+  color: var(--dl-color-theme-secondary2);
+  opacity: 0.9;
 }
  
 .hero17-content2 {
@@ -680,6 +743,7 @@
   position: relative;
   align-items: flex-start;
   flex-direction: column;
+  z-index: 1;
 }
  
 .hero17-row-container {
@@ -1006,6 +1070,15 @@
 .pricing3-button {
   width: 100%;
   text-decoration: none;
+  cursor: pointer;
+  color: var(--dl-color-theme-secondary1);
+  position: relative;
+  z-index: 100;
+  pointer-events: auto;
+}
+
+.pricing3-button:hover {
+  opacity: 0.9;
 }
  
 .home-fragment35 {
@@ -1607,6 +1680,16 @@
  
 .contact3-button {
   text-decoration: none;
+  cursor: pointer;
+  color: var(--dl-color-theme-primary1);
+  position: relative;
+  z-index: 100;
+  pointer-events: auto;
+}
+
+.contact3-button:hover {
+  color: var(--dl-color-theme-secondary2);
+  opacity: 0.9;
 }
  
 .home-fragment49 {
@@ -2035,4 +2118,68 @@
     grid-column-end: 2;
     grid-column-start: 1;
   }
+}
+
+/* Gemini Custom Button Styles */
+.gemini-button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  position: relative; /* Ensures z-index is effective */
+  z-index: 9999; /* Very high z-index */
+  pointer-events: auto; /* Explicitly enable pointer events */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.gemini-login-button {
+  background-color: #BF4408; /* Theme primary1 */
+  color: #FFFFFF; /* Theme secondary1 */
+  border: 1px solid #BF4408;
+}
+
+.gemini-login-button:hover {
+  background-color: #E65103; /* Theme primary2 */
+  transform: translateY(-2px);
+}
+
+.gemini-registro-button {
+  background-color: transparent;
+  color: #BF4408; /* Theme primary1 */
+  border: 1px solid #BF4408;
+}
+
+.gemini-registro-button:hover {
+  background-color: #FBF1EB; /* Theme secondary2 for a subtle hover */
+  color: #E65103; /* Theme primary2 */
+  border-color: #E65103;
+  transform: translateY(-2px);
+}
+
+.gemini-mentor-button {
+  background-color: #007bff; /* A distinct blue for Telegram contact */
+  color: #FFFFFF;
+  border: 1px solid #007bff;
+  width: calc(100% - 10px); /* Make it full width like the original, accounting for margin */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.gemini-mentor-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* Ensure these buttons are also seen above other elements in specific contexts if needed */
+.hero17-actions .gemini-button {
+    /* styles specific to buttons in hero17-actions if any more needed later */
+}
+
+.pricing3-content2 .gemini-button {
+    /* styles specific to buttons in pricing3-content2 if any more needed later */
 }
