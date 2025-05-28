@@ -1,13 +1,26 @@
 {
-  "name": "oficial",
+  "name": "app-store-design",
   "version": "1.0.0",
-  "private": true,
-  "dependencies": {
-    "parcel-bundler": "^1.6.1",
-    "next": "^12.1.10",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+  "description": "A responsive web design that mimics a Google Play Store app page",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
-  "scripts": {},
-  "devDependencies": {}
-}
+  "keywords": [
+    "app",
+    "store",
+    "design",
+    "responsive",
+    "frontend"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+} 

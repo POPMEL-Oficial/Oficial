@@ -1,60 +1,12 @@
 <!DOCTYPE html>
-<html lang="en"
-  ><head
-    ><title>Oficial</title
-    ><meta property="og:title" content="Oficial" /><meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    /><meta charset="utf-8" /><meta
-      property="twitter:card"
-      content="summary_large_image"
-    />
-
-    <style data-tag="reset-style-sheet">
-      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;  -webkit-font-smoothing: antialiased;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;  color: inherit;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}details {  display: block;  margin: 0;  padding: 0;}summary::-webkit-details-marker {  display: none;}[data-thq="accordion"] [data-thq="accordion-content"] {  max-height: 0;  overflow: hidden;  transition: max-height 0.3s ease-in-out;  padding: 0;}[data-thq="accordion"] details[data-thq="accordion-trigger"][open] + [data-thq="accordion-content"] {  max-height: 1000vh;}details[data-thq="accordion-trigger"][open] summary [data-thq="accordion-icon"] {  transform: rotate(180deg);}html { scroll-behavior: smooth  }
-    </style>
-    <style data-tag="default-style-sheet">
-      html {
-        font-family: Inter;
-        font-size: 16px;
-      }
-
-      body {
-        font-weight: 400;
-        font-style:normal;
-        text-decoration: none;
-        text-transform: none;
-        letter-spacing: normal;
-        line-height: 1.15;
-        color: var(--dl-color-theme-neutral-dark);
-        background: var(--dl-color-theme-neutral-light);
-
-        fill: var(--dl-color-theme-neutral-dark);
-      }
-    </style>
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/animate.css@4.1.1/animate.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
-    />
+<html lang="br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Store Design</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
@@ -65,714 +17,680 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '717157704580293');
+    fbq('init', '24192442997008925');
     fbq('track', 'PageView');
+    
+    // Helper functions for tracking
+    function generateEventId() {
+      return 'event_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+    }
+    
+    function getCookieValue(name) {
+      const match = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+      return match ? match.pop() : '';
+    }
     </script>
     <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=717157704580293&ev=PageView&noscript=1"
+    src="https://www.facebook.com/tr?id=24192442997008925&ev=PageView&noscript=1"
     /></noscript>
     <!-- End Meta Pixel Code -->
-  </head>
-  <body
-    ><link rel="stylesheet" href="./style.css" /><div
-      ><link href="./index.css" rel="stylesheet" /><div class="home-container1"
-        ><navbar8-wrapper
-          class="navbar8-wrapper"
-          rootclassname="navbar8undefined"
-          ><!--Navbar8 component--><header
-            class="navbar8-container1 navbar8root-class-name"
-            ><header data-thq="thq-navbar" class="navbar8-navbar-interactive"
-              ><img
-                alt="logo"
-                src="public/screenshot_1-1500h.png"
-                class="navbar8-image1"
-              /><div
-                data-thq="thq-navbar-nav"
-                class="navbar8-desktop-menu"
-              ></div
-              ><div data-thq="thq-burger-menu" class="navbar8-burger-menu"></div
-              ><div data-thq="thq-mobile-menu" class="navbar8-mobile-menu"
-                ><div class="navbar8-nav"
-                  ><div class="navbar8-top"
-                    ><img
-                      alt="logo"
-                      src="public/screenshot_1-1500h.png"
-                      class="navbar8-logo" /><div
-                      data-thq="thq-close-menu"
-                      class="navbar8-close-menu"
-                      ><svg viewBox="0 0 1024 1024" class="navbar8-icon10">
-                        <path
-                          d="M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z"
-                        ></path></svg></div></div
-                  ><nav class="navbar8-links"
-                    ><a
-                      href="https://www.teleporthq.io"
-                      class="navbar8-link1 thq-link thq-body-small"
-                      ><fragment class="home-fragment10"
-                        ><span class="home-text10">Link 1</span></fragment
-                      ></a
-                    ><a
-                      href="https://www.teleporthq.io"
-                      class="thq-link thq-body-small"
-                      ><fragment class="home-fragment11"
-                        ><span class="home-text11">Link 2</span></fragment
-                      ></a
-                    ><a
-                      href="https://www.teleporthq.io"
-                      class="navbar8-link3 thq-link thq-body-small"
-                      ><fragment class="home-fragment12"
-                        ><span class="home-text12">Link 3</span></fragment
-                      ></a
-                    ><div class="navbar8-link4-accordion"
-                      ><div class="navbar8-trigger"
-                        ><span class="thq-link thq-body-small"
-                          ><fragment class="home-fragment13"
-                            ><span class="home-text13">Link 4</span></fragment
-                          ></span
-                        ><div class="navbar8-icon-container"
-                          ><div class="navbar8-container2"
-                            ><svg
-                              viewBox="0 0 1024 1024"
-                              class="navbar8-icon12"
-                            >
-                              <path
-                                d="M298 426h428l-214 214z"
-                              ></path></svg></div
-                          ><div class="navbar8-container3"
-                            ><svg
-                              viewBox="0 0 1024 1024"
-                              class="navbar8-icon14"
-                            >
-                              <path
-                                d="M426 726v-428l214 214z"
-                              ></path></svg></div></div></div
-                      ><div class="navbar8-container4"
-                        ><a href="https://www.teleporthq.io"
-                          ><div class="navbar8-menu-item1"
-                            ><img
-                              alt="image"
-                              src="https:/images.unsplash.com/photo-1440335680360-79703e7032f9?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTc0NzQxOTk5N3w&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
-                              class="navbar8-page1-image1"
-                            /><div class="navbar8-content1"
-                              ><span class="navbar8-page11 thq-body-large"
-                                ><fragment class="home-fragment14"
-                                  ><span class="home-text14"
-                                    >Page One</span
-                                  ></fragment
-                                ></span
-                              ><span class="thq-body-small"
-                                ><fragment class="home-fragment21"
-                                  ><span class="home-text21"
-                                    >Page One Description</span
-                                  ></fragment
-                                ></span
-                              ></div
-                            ></div
-                          ></a
-                        ><a href="https://www.teleporthq.io"
-                          ><div class="navbar8-menu-item2"
-                            ><img
-                              alt="image"
-                              src="https:/images.unsplash.com/photo-1595698243434-9e2df45cb94d?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTc0NzQxOTk5OHw&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
-                              class="navbar8-page2-image1"
-                            /><div class="navbar8-content2"
-                              ><span class="navbar8-page21 thq-body-large"
-                                ><fragment class="home-fragment15"
-                                  ><span class="home-text15"
-                                    >Page Two</span
-                                  ></fragment
-                                ></span
-                              ><span class="thq-body-small"
-                                ><fragment class="home-fragment22"
-                                  ><span class="home-text22"
-                                    >Page Two Description</span
-                                  ></fragment
-                                ></span
-                              ></div
-                            ></div
-                          ></a
-                        ><a href="https://www.teleporthq.io"
-                          ><div class="navbar8-menu-item3"
-                            ><img
-                              alt="image"
-                              src="https:/images.unsplash.com/photo-1602765835989-b021fe3ed4f8?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTc0NzQxOTk5OHw&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
-                              class="navbar8-page3-image1"
-                            /><div class="navbar8-content3"
-                              ><span class="navbar8-page31 thq-body-large"
-                                ><fragment class="home-fragment16"
-                                  ><span class="home-text16"
-                                    >Page Three</span
-                                  ></fragment
-                                ></span
-                              ><span class="thq-body-small"
-                                ><fragment class="home-fragment23"
-                                  ><span class="home-text23"
-                                    >Page Three Description</span
-                                  ></fragment
-                                ></span
-                              ></div
-                            ></div
-                          ></a
-                        ><a href="https://www.teleporthq.io"
-                          ><div class="navbar8-menu-item4"
-                            ><img
-                              alt="image"
-                              src="https:/images.unsplash.com/photo-1527769929977-c341ee9f2033?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTc0NzQxOTk5N3w&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
-                              class="navbar8-page4-image1"
-                            /><div class="navbar8-content4"
-                              ><span class="navbar8-page41 thq-body-large"
-                                ><fragment class="home-fragment17"
-                                  ><span class="home-text17"
-                                    >Page Four</span
-                                  ></fragment
-                                ></span
-                              ><span class="thq-body-small"
-                                ><fragment class="home-fragment24"
-                                  ><span class="home-text24"
-                                    >Page Four Description</span
-                                  ></fragment
-                                ></span
-                              ></div
-                            ></div
-                          ></a
-                        ></div
-                      ></div
-                    ></nav
-                  ><div class="navbar8-buttons">
-                    </div
-                  ></div
-                ></div
-              ><div class="navbar8-container5 thq-box-shadow">
-                <div class="navbar8-link5-menu-list"
-                  ><a href="https://www.teleporthq.io"
-                    ><div class="navbar8-menu-item5"
-                      ><img
-                        alt="image"
-                        src="https:/images.unsplash.com/photo-1440335680360-79703e7032f9?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTc0NzQxOTk5N3w&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
-                        class="navbar8-page1-image2 thq-img-ratio-1-1"
-                      /><div class="navbar8-content5"
-                        ><span class="navbar8-page12 thq-body-large"
-                          ><fragment class="home-fragment14"
-                            ><span class="home-text14">Page One</span></fragment
-                          ></span
-                        ><span class="thq-body-small"
-                          ><fragment class="home-fragment21"
-                            ><span class="home-text21"
-                              >Page One Description</span
-                            ></fragment
-                          ></span
-                        ></div
-                      ></div
-                    ></a
-                  ><a href="https://www.teleporthq.io"
-                    ><div class="navbar8-menu-item6"
-                      ><img
-                        alt="image"
-                        src="https:/images.unsplash.com/photo-1595698243434-9e2df45cb94d?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTc0NzQxOTk5OHw&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
-                        class="navbar8-page2-image2 thq-img-ratio-1-1"
-                      /><div class="navbar8-content6"
-                        ><span class="navbar8-page22 thq-body-large"
-                          ><fragment class="home-fragment15"
-                            ><span class="home-text15">Page Two</span></fragment
-                          ></span
-                        ><span class="thq-body-small"
-                          ><fragment class="home-fragment22"
-                            ><span class="home-text22"
-                              >Page Two Description</span
-                            ></fragment
-                          ></span
-                        ></div
-                      ></div
-                    ></a
-                  ><a href="https://www.teleporthq.io"
-                    ><div class="navbar8-menu-item7"
-                      ><img
-                        alt="image"
-                        src="https:/images.unsplash.com/photo-1602765835989-b021fe3ed4f8?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTc0NzQxOTk5OHw&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
-                        class="navbar8-page3-image2 thq-img-ratio-1-1"
-                      /><div class="navbar8-content7"
-                        ><span class="navbar8-page32 thq-body-large"
-                          ><fragment class="home-fragment16"
-                            ><span class="home-text16"
-                              >Page Three</span
-                            ></fragment
-                          ></span
-                        ><span class="thq-body-small"
-                          ><fragment class="home-fragment23"
-                            ><span class="home-text23"
-                              >Page Three Description</span
-                            ></fragment
-                          ></span
-                        ></div
-                      ></div
-                    ></a
-                  ><a href="https://www.teleporthq.io"
-                    ><div class="navbar8-menu-item8"
-                      ><img
-                        alt="image"
-                        src="https:/images.unsplash.com/photo-1527769929977-c341ee9f2033?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTc0NzQxOTk5N3w&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
-                        class="navbar8-page4-image2 thq-img-ratio-1-1"
-                      /><div class="navbar8-content8"
-                        ><span class="navbar8-page42 thq-body-large"
-                          ><fragment class="home-fragment17"
-                            ><span class="home-text17"
-                              >Page Four</span
-                            ></fragment
-                          ></span
-                        ><span class="thq-body-small"
-                          ><fragment class="home-fragment24"
-                            ><span class="home-text24"
-                              >Page Four Description</span
-                            ></fragment
-                          ></span
-                        ></div
-                      ></div
-                    ></a
-                  ></div
-                ></div
-              ><a
-                href="https://t.me/luizgabs13"
-                target="_blank"
-                rel="noreferrer noopener"
-                class="navbar8-link13"
-                ><fragment class="home-fragment18"
-                  ><span class="home-text18"
-                    >Contato: Mentor do Telegram</span
-                  ></fragment
-                ></a
-              ></header
-            ><div class="navbar8-container6"></div></header></navbar8-wrapper
-        ><hero17-wrapper class="hero17-wrapper" rootclassname="hero17undefined"
-          ><!--Hero17 component--><div
-            class="hero17-header78 hero17root-class-name"
-            ><div
-              class="hero17-column thq-section-max-width thq-section-padding"
-              ><div class="hero17-content1"
-                ><h1 class="hero17-text1 thq-heading-1"
-                  ><fragment class="home-fragment28"
-                    ><span class="home-text28"
-                      >Bem-vindo ao POPMEL, amigo!!</span
-                    ></fragment
-                  ></h1
-                ><p class="hero17-text2 thq-body-large"
-                  ><fragment class="home-fragment27"
-                    ><span class="home-text27"
-                      >Obrigado por escolher a POPMEL como sua plataforma
-                      preferida. Espero que você se divirta muito e ganhe bônus!
-                      Aqui, você pode saber mais sobre nossos bônus e nossa
-                      plataforma, ou começar a jogar imediatamente!</span
-                    ></fragment
-                  ></p
-                ></div
-              ><div class="hero17-actions"
-                ><a
-                  id="loginButton1"
-                  href="https://popmel33.com/main/inicio?ch=25837"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  class="hero17-button1 thq-button-filled"
-                  ><span class="thq-body-small"
-                    ><fragment class="home-fragment25"
-                      ><span class="home-text25">Login</span></fragment
-                    ></span
-                  ></a
-                ><a
-                  id="registroButton1"
-                  href="https://popmel33.com/main/inicio?ch=25837"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  class="hero17-button2 thq-button-outline"
-                  ><span class="thq-body-small"
-                    ><fragment class="home-fragment26"
-                      ><span class="home-text26">Registro</span></fragment
-                    ></span
-                  ></a
-                ></div
-              ></div
-            ><div class="hero17-content2"
-              ><div
-                class="hero17-row-container thq-mask-image-horizontal thq-animated-group-container-horizontal"
-                ><div class="hero17-strip thq-animated-group-horizontal"
-                  ><img
-                    alt="Mobile Website Template Image"
-                    src="public/photo_2025-05-04_11-39-15%20(2)-1800w.jpg"
-                    class="hero17-placeholder-image1 thq-img-scale thq-img-ratio-1-1" /><img
-                    alt="Mobile Website Template Image"
-                    src="public/photo_2025-05-04_11-39-15-1800w.jpg"
-                    class="hero17-placeholder-image2 thq-img-scale thq-img-ratio-1-1" /><img
-                    alt="Mobile Website Template Image"
-                    src="public/photo_2025-05-04_14-00-16-1800w.jpg"
-                    class="hero17-placeholder-image3 thq-img-scale thq-img-ratio-1-1" /><img
-                    alt="Mobile Website Template Image"
-                    src="public/photo_2025-05-04_14-00-23-1800w.jpg"
-                    class="hero17-placeholder-image4 thq-img-scale thq-img-ratio-1-1" /><img
-                    alt="Mobile Website Template Image"
-                    src="public/photo_2025-05-04_14-00-28-1800w.jpg"
-                    class="hero17-placeholder-image5 thq-img-scale thq-img-ratio-1-1" /><img
-                    alt="Mobile Website Template Image"
-                    src="public/photo_2025-05-04_14-00-36-1800w.jpg"
-                    class="hero17-placeholder-image6 thq-img-scale thq-img-ratio-1-1" /><img
-                    alt="Mobile Website Template Image"
-                    src="public/photo_2025-05-04_14-00-40-1800w.jpg"
-                    class="hero17-placeholder-image7 thq-img-scale thq-img-ratio-1-1" /><img
-                    alt="Mobile Website Template Image"
-                    src="public/photo_2025-05-05_07-45-04-1800w.jpg"
-                    class="hero17-placeholder-image8 thq-img-scale thq-img-ratio-1-1" /><img
-                    alt="Mobile Website Template Image"
-                    src="public/photo_2025-05-05_23-46-31-1800w.jpg"
-                    class="hero17-placeholder-image9 thq-img-scale thq-img-ratio-1-1" /></div></div></div
-            ><div
-              ><div class="hero17-container2"
-                ><style>
-                  @keyframes scroll-x {
-                    from {
-                      transform: translateX(0);
-                    }
-                    to {
-                      transform: translateX(calc(-100% - 16px));
-                    }
-                  }
-
-                  @keyframes scroll-y {
-                    from {
-                      transform: translateY(0);
-                    }
-                    to {
-                      transform: translateY(calc(-100% - 16px));
-                    }
-                  }
-                </style>
-              </div></div
-            ></div
-          ></hero17-wrapper
-        ><pricing3-wrapper class="pricing3-wrapper"
-          ><!--Pricing3 component--><div
-            class="pricing3-pricing4 thq-section-padding"
-            ><div class="pricing3-max-width thq-section-max-width"
-              ><div class="pricing3-section-title"
-                ><div class="pricing3-content1"></div></div
-              ><div class="pricing3-content2 thq-card"
-                ><div class="pricing3-price-title1"
-                  ><div class="pricing3-price-title2"
-                    ><div class="pricing3-title"></div></div
-                  ><h3 class="pricing3-text10 thq-heading-3"
-                    ><fragment class="home-fragment29"
-                      ><span class="home-text29"
-                        >Evento especial!</span
-                      ></fragment
-                    ></h3
-                  ></div
-                ><div class="thq-divider-horizontal"></div
-                ><div class="pricing3-content3"
-                  ><span class="thq-body-small"
-                    ><fragment class="home-fragment39"
-                      ><span class="home-text45"
-                        >Bônus de membro!</span
-                      ></fragment
-                    ></span
-                  ><div class="pricing3-content4"
-                    ><div class="pricing3-list1"
-                      ><div class="pricing3-list-item10"
-                        ><svg viewBox="0 0 1024 1024" class="thq-icon-small">
-                          <path
-                            d="M384 690l452-452 60 60-512 512-238-238 60-60z"
-                          ></path></svg
-                        ><span class="thq-body-small"
-                          ><fragment class="home-fragment31"
-                            ><span class="home-text31"
-                              >Presente de boas-vindas: 2R$!</span
-                            ></fragment
-                          ></span
-                        ></div
-                      ><div class="pricing3-list-item11"
-                        ><svg viewBox="0 0 1024 1024" class="thq-icon-small">
-                          <path
-                            d="M384 690l452-452 60 60-512 512-238-238 60-60z"
-                          ></path></svg
-                        ><span class="thq-body-small"
-                          ><fragment class="home-fragment32"
-                            ><span class="home-text32"
-                              ><span>Presente por ingresso no grupo: 25R$!</span
-                              ><br /></span></fragment></span></div
-                      ><div class="pricing3-list-item12"
-                        ><svg viewBox="0 0 1024 1024" class="thq-icon-small">
-                          <path
-                            d="M384 690l452-452 60 60-512 512-238-238 60-60z"
-                          ></path></svg
-                        ><span class="thq-body-small"
-                          ><fragment class="home-fragment33"
-                            ><span class="home-text35"
-                              ><span
-                                >Bônus diário: 2R$ por dia, durante 7 dias
-                                consecutivos!</span
-                              ><br /></span></fragment></span></div
-                      ><div class="pricing3-list-item13"
-                        ><svg viewBox="0 0 1024 1024" class="thq-icon-small">
-                          <path
-                            d="M384 690l452-452 60 60-512 512-238-238 60-60z"
-                          ></path></svg
-                        ><span class="thq-body-small"
-                          ><fragment class="home-fragment34"
-                            ><span class="home-text38"
-                              >Variedade de bônus VIP!</span
-                            ></fragment
-                          ></span
-                        ></div
-                      ><div class="pricing3-list-item14"
-                        ><span class="thq-body-small"
-                          ><fragment class="home-fragment35"
-                            ><span class="home-text39"
-                              ><span class="home-text40"
-                                >Torne-se nosso agente! Convide um membro para
-                                depositar e ganhe recompensas!</span
-                              ><br /></span></fragment></span></div></div
-                    ><div class="pricing3-list2"
-                      ><div class="pricing3-list-item15"
-                        ><svg viewBox="0 0 1024 1024" class="thq-icon-small">
-                          <path
-                            d="M384 690l452-452 60 60-512 512-238-238 60-60z"
-                          ></path></svg
-                        ><span class="thq-body-small"
-                          ><fragment class="home-fragment36"
-                            ><span class="home-text42"
-                              >Bônus de R$ para cada membro!</span
-                            ></fragment
-                          ></span
-                        ></div
-                      ><div class="pricing3-list-item16"
-                        ><svg viewBox="0 0 1024 1024" class="thq-icon-small">
-                          <path
-                            d="M384 690l452-452 60 60-512 512-238-238 60-60z"
-                          ></path></svg
-                        ><span class="thq-body-small"
-                          ><fragment class="home-fragment37"
-                            ><span class="home-text43"
-                              >Salário semanal!</span
-                            ></fragment
-                          ></span
-                        ></div
-                      ><div class="pricing3-list-item17"
-                        ><svg viewBox="0 0 1024 1024" class="thq-icon-small">
-                          <path
-                            d="M384 690l452-452 60 60-512 512-238-238 60-60z"
-                          ></path></svg
-                        ><span class="thq-body-small"
-                          ><fragment class="home-fragment38"
-                            ><span class="home-text44"
-                              >Agente Bônus extra!</span
-                            ></fragment
-                          ></span
-                        ></div
-                      ><div class="pricing3-list-item18"></div
-                      ><div class="pricing3-list-item19"></div></div></div></div
-                ><a
-                  id="mentorContatoButton1"
-                  href="https://t.me/luizgabs13"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  class="pricing3-button thq-button-filled"
-                  ><span class="thq-body-small"
-                    ><fragment class="home-fragment30"
-                      ><span class="home-text30"
-                        >Mentor de Contato</span
-                      ></fragment
-                    ></span
-                  ></a
-                ></div
-              ></div
-            ></div
-          ></pricing3-wrapper
-        ><steps2-wrapper class="steps2-wrapper" rootclassname="steps2undefined"
-          ><!--Steps2 component--><div
-            class="steps2-container1 thq-section-padding steps2root-class-name"
-            ><div class="steps2-max-width thq-section-max-width"
-              ><div class="steps2-container2 thq-grid-2"
-                ><div class="steps2-section-header"
-                  ><h2 class="thq-heading-2 steps2-text10"
-                    >Como reivindicar o bônus?</h2
-                  ><p class="thq-body-large steps2-text11"
-                    >Já se cadastrou e depositou? Reivindique o bônus aqui!</p
-                  ><div class="steps2-actions"
-                    ><a
-                      href="https://t.me/POPMEL_Bonus_bot"
-                      target="_blank"
-                      rel="noreferrer noopener"
-                      class="steps2-button thq-button-animated thq-button-filled"
-                      ><span class="thq-body-small">Bônus</span></a
-                    ></div
-                  ></div
-                ><div class="steps2-container3"
-                  ><div class="steps2-container4 thq-card"
-                    ><h2 class="thq-heading-2"
-                      ><fragment class="home-fragment40"
-                        ><span class="home-text46"
-                          >Acesse nosso site usando o botão de login ou
-                          registro</span
-                        ></fragment
-                      ></h2
-                    ><span class="steps2-text14 thq-body-small"
-                      ><fragment class="home-fragment44"
-                        ><span class="home-text50"
-                          >Lembre-se de usar nosso link!</span
-                        ></fragment
-                      ></span
-                    ><label class="steps2-text15 thq-heading-3">01</label></div
-                  ><div class="steps2-container5 thq-card"
-                    ><h2 class="thq-heading-2"
-                      ><fragment class="home-fragment41"
-                        ><span class="home-text47"
-                          >Primeiro depósito</span
-                        ></fragment
-                      ></h2
-                    ><span class="steps2-text17 thq-body-small"
-                      ><fragment class="home-fragment45"
-                        ><span class="home-text51"
-                          >Already have an account? Log in here.</span
-                        ></fragment
-                      ></span
-                    ><label class="steps2-text18 thq-heading-3">02</label></div
-                  ><div class="steps2-container6 thq-card"
-                    ><h2 class="thq-heading-2"
-                      ><fragment class="home-fragment42"
-                        ><span class="home-text48"
-                          >Reivindique seu bônus!</span
-                        ></fragment
-                      ></h2
-                    ><span class="steps2-text20 thq-body-small"
-                      ><fragment class="home-fragment46"
-                        ><span class="home-text52"
-                          >Descubra todos os recursos incríveis que nossa
-                          plataforma oferece.</span
-                        ></fragment
-                      ></span
-                    ><label class="steps2-text21 thq-heading-3">03</label></div
-                  ><div class="steps2-container7 thq-card"
-                    ><h2 class="thq-heading-2"
-                      ><fragment class="home-fragment43"
-                        ><span class="home-text49"
-                          >Divirta-se e jogue!!</span
-                        ></fragment
-                      ></h2
-                    ><span class="steps2-text23 thq-body-small"
-                      ><fragment class="home-fragment47"
-                        ><span class="home-text53"
-                          >Nós nos esforçamos para ser sua plataforma
-                          favorita!</span
-                        ></fragment
-                      ></span
-                    ><label class="steps2-text24 thq-heading-3">04</label></div
-                  ></div
-                ></div
-              ></div
-            ></div
-          ></steps2-wrapper
-        ><div class="home-container2"
-          ><img
-            alt="image"
-            src="public/tutorial1-500w.jpg"
-            class="home-image1" /><img
-            alt="image"
-            src="public/tutorial%20-%20copy1-500w.jpg"
-            class="home-image2" /></div
-        ><contact10-wrapper
-          class="contact10-wrapper"
-          rootclassname="contact10undefined"
-          ><!--Contact10 component--><div
-            class="contact10-container1 thq-section-padding contact10root-class-name"
-            ><h1 class="contact10-text1"
-              ><fragment class="home-fragment48"
-                ><span class="home-text54">Detalhe Bônus</span></fragment
-              ></h1
-            ><div class="contact10-max-width thq-section-max-width"
-              ><div class="contact10-container2"
-                ><div class="contact10-content1 thq-flex-row"
-                  ><div class="contact10-content2"></div></div></div
-              ><div class="contact10-content3 thq-flex-row"
-                ><div class="contact10-container3"
-                  ><div class="contact10-container4"
-                    ><img
-                      alt="image"
-                      src="public/BONUS/bonus1-200h.jpg"
-                      class="contact10-image1" /></div
-                  ><div class="contact10-container5"
-                    ><img
-                      alt="image"
-                      src="public/BONUS/bonus3-200h.jpg"
-                      class="contact10-image2" /></div
-                  ><div class="contact10-container6"
-                    ><img
-                      alt="image"
-                      src="public/BONUS/bonus4-200h.jpg"
-                      class="contact10-image3" /></div
-                  ><div class="contact10-container7"
-                    ><img
-                      alt="image"
-                      src="public/BONUS/bonus5-200h.jpg"
-                      class="contact10-image4" /></div></div></div></div></div></contact10-wrapper
-        ><contact3-wrapper class="contact3-wrapper"
-          ><!--Contact3 component--><div
-            class="contact3-contact20 thq-section-padding"
-            ><div class="contact3-max-width thq-section-max-width"
-              ><div class="contact3-section-title"
-                ><div class="contact3-content"
-                  ><h2 class="thq-heading-2"
-                    ><fragment class="home-fragment50"
-                      ><span class="home-text56">Jogue agora! </span></fragment
-                    ></h2
-                  ></div
-                ></div
-              ><a
-                id="registroButton2"
-                href="https://popmel33.com/main/inicio?ch=25837"
-                target="_blank"
-                rel="noreferrer noopener"
-                class="contact3-button thq-button-outline"
-                ><span class="thq-body-small"
-                  ><fragment class="home-fragment49"
-                    ><span class="home-text55">Registro</span></fragment
-                  ></span
-                ></a
-              ></div
-            ></div
-          ></contact3-wrapper
-        ></div
-      ></div
-    >
-    <script
-      defer=""
-      src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
-    ></script>
+    
+    <!-- Signals Gateway Pixel Code -->
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        // Helper function to attach event listeners
-        function addButtonListener(buttonId, eventName, isCustom) {
-          const button = document.getElementById(buttonId);
-          if (button) {
-            button.addEventListener('click', function() {
-              if (isCustom) {
-                fbq('trackCustom', eventName);
-              } else {
-                fbq('track', eventName);
-              }
-              console.log('FB Pixel event tracked: ' + eventName + ' for button ID: ' + buttonId);
-            });
-          } else {
-            console.warn('Button with ID ' + buttonId + ' not found for FB Pixel tracking.');
-          }
-        }
-
-        // Track Login Button
-        addButtonListener('loginButton1', 'LoginButtonClick', true);
-
-        // Track Registro Button 1
-        addButtonListener('registroButton1', 'CompleteRegistration', false);
-
-        // Track Mentor de Contato Button
-        addButtonListener('mentorContatoButton1', 'Contact', false);
-
-        // Track Registro Button 2
-        addButtonListener('registroButton2', 'CompleteRegistration', false);
-      });
+    !function(a,h,e,v,n,t,s)
+    {if(a.cbq)return;n=a.cbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!a._cbq)a._cbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=h.createElement(e);t.async=!0;
+    t.src=v;s=h.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://sgw.stape.ac/sdk/6270750353599129361/events.js');
+    cbq('setHost', 'https://sgw.stape.ac/');
+    cbq('init', '6270750353599129361');
+    cbq('track', 'PageView', {
+      event_source_url: window.location.href,
+      user_data: {
+        client_user_agent: navigator.userAgent,
+        fbp: getCookieValue('_fbp'),
+        fbc: getCookieValue('_fbc')
+      }
+    });
     </script>
-  </body
-></html>
+    <!-- End Signals Gateway Pixel Code -->
+    
+    <!-- Popup Styles -->
+    <style>
+    .popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+    
+    .popup-container {
+        background: white;
+        width: 90%;
+        max-width: 400px;
+        border-radius: 12px;
+        overflow: hidden;
+        animation: popupFadeIn 0.3s ease-out;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+    }
+    
+    @keyframes popupFadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .popup-header {
+        display: flex;
+        justify-content: flex-end;
+        padding: 10px;
+    }
+    
+    .popup-close {
+        background: none;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        color: #888;
+    }
+    
+    .popup-image-container {
+        width: 100%;
+        text-align: center;
+        background: #f8f8f8;
+    }
+    
+    .popup-image {
+        max-width: 100%;
+        height: auto;
+        max-height: 250px;
+        object-fit: contain;
+    }
+    
+    .popup-content {
+        padding: 20px;
+        text-align: center;
+    }
+    
+    .popup-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #333;
+    }
+    
+    .popup-description {
+        font-size: 14px;
+        color: #555;
+        margin-bottom: 15px;
+        line-height: 1.5;
+    }
+    
+    .popup-telegram-btn {
+        display: block;
+        background: #0088cc;
+        color: white;
+        padding: 12px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        margin-top: 15px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        transition: all 0.2s ease;
+    }
+    
+    .popup-telegram-btn i {
+        margin-right: 5px;
+    }
+    
+    .popup-telegram-btn:hover {
+        background: #006aa9;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    .popup-continue-btn {
+        display: block;
+        background: #4CAF50;
+        color: white;
+        padding: 12px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        margin-top: 15px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        transition: all 0.2s ease;
+    }
+    
+    .popup-continue-btn:hover {
+        background: #43a047;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    </style>
+</head>
+<body>
+    <div class="mobile-container">
+        <header class="app-header">
+            <div class="google-play">
+                <img src="images/Google_Play-Logo.wine.png" alt="Google Play" class="gp-logo">
+                <div class="dev-badge">
+                    <img src="images/TopDeveloper.png" alt="Top Developer">
+                </div>
+            </div>
+        </header>
+
+        <!-- App Info Section -->
+        <section class="app-info">
+            <div class="app-identity">
+                <img src="images/POPMELLOGO.webp" alt="POPMEL" class="app-icon">
+                <div class="app-title">
+                    <h1>POPMEL</h1>
+                    <h2 class="app-url">POPMEL.COM</h2>
+                    <p class="verification">Verificado pelo aplicativo</p>
+                </div>
+            </div>
+            
+            <div class="app-stats">
+                <div class="stat">
+                    <div class="rating">4.9 <i class="fas fa-star"></i></div>
+                    <div class="reviews">300.000+ reviews</div>
+                </div>
+                <div class="stat">
+                    <div class="downloads">1M+</div>
+                    <div class="downloading">Baixando</div>
+                </div>
+                <div class="stat">
+                    <div class="age-rating">18+</div>
+                    <div class="age-info">Rated for 18+</div>
+                </div>
+            </div>
+            
+            <a href="#" class="install-btn" id="installButton">
+                <i class="fas fa-bolt"></i> Instalação Rápida
+                <span class="install-subtext">Baixe dentro de 15 segundos</span>
+            </a>
+            
+            <div class="action-buttons">
+                <button class="action-btn share-btn">
+                    <i class="fas fa-share-alt"></i> Share
+                </button>
+                <button class="action-btn wishlist-btn">
+                    <i class="far fa-bookmark"></i> Add to wishlist
+                </button>
+            </div>
+        </section>
+        
+        <!-- Carousel Section -->
+        <section class="app-carousel">
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="carousel-item"><img src="images/Image1.jpg" alt="Fortune Tiger Promo" class="portrait-image"></div><div class="carousel-item"><img src="images/Image5.jpg" alt="Fortune Tiger Promo" class="portrait-image"></div><div class="carousel-item"><img src="images/Image3.jpg" alt="Fortune Tiger Promo" class="portrait-image"></div><div class="carousel-item"><img src="images/Image4..jpg" alt="Fortune Tiger Promo" class="portrait-image"></div><div class="carousel-item"><img src="images/Image2.jpg" alt="Fortune Tiger Promo" class="portrait-image"></div>
+                </div>
+                <div class="carousel-nav">
+                    <button class="nav-btn prev"><i class="fas fa-chevron-left"></i></button>
+                    <div class="carousel-indicators"></div>
+                    <button class="nav-btn next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- About Section -->
+        <section class="about-section">
+            <div class="section-header">
+                <h2>Sobre este aplicativo</h2>
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            <p class="app-description">POPMEL.COM</p>
+            <div class="bonus-list">
+                <div class="bonus-item">
+                    <i class="fas fa-gift"></i>
+                    <span>Bonus de boas vindas R$ 203</span>
+                </div>
+                <div class="bonus-item">
+                    <i class="fas fa-gift"></i>
+                    <span>Bonus de indicação R$ 100 até</span>
+                </div>
+                <div class="bonus-item">
+                    <i class="fas fa-gift"></i>
+                    <span>Novos membros podem ganhar até R$ 500 em bonus após fazer login no dia seguinte!</span>
+                </div>
+                <div class="bonus-item">
+                    <i class="fas fa-gift"></i>
+                    <span>Bonus novo membro dias 2, 3, 7, 15, 30 ganhe um bonus misterioso até R$ 7.777</span>
+                </div>
+                <div class="bonus-item">
+                    <i class="fas fa-gift"></i>
+                    <span>Bonus de nivel vip diário e mensal, comece agora! o evento está em andamento!</span>
+                </div>
+            </div>
+
+            <div class="app-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Atualizado em</span>
+                    <span class="meta-value">May 18, 2025</span>
+                </div>
+            </div>
+
+            <div class="app-tags">
+                <span class="tag">#1 principais apps gratuitos ação</span>
+                <span class="tag">Ação</span>
+                <span class="tag">Jogos de plataforma</span>
+                <span class="tag">Casual</span>
+                <span class="tag">Multiplayer</span>
+                <span class="tag">Estilizado</span>
+            </div>
+        </section>
+
+        <!-- Data Security Section -->
+        <section class="security-section">
+            <div class="section-header">
+                <h2>Segurança dos dados</h2>
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            <p class="security-intro">
+                Sua segurança começa com o entendimento de como os desenvolvedores coletam e compartilham seus dados. As práticas de segurança e privacidade de dados podem variar de acordo com o uso, a região e a idade. O desenvolvedor forneceu as informações a seguir, que podem ser atualizadas ao longo do tempo.
+            </p>
+
+            <div class="security-item">
+                <i class="fas fa-share-alt"></i>
+                <div class="security-content">
+                    <h3>Este app pode compartilhar estes tipos de dados com terceiros</h3>
+                    <p>Local, Informações financeiras e Identificadores do dispositivo e outros</p>
+                </div>
+            </div>
+
+            <div class="security-item">
+                <i class="fas fa-cloud-download-alt"></i>
+                <div class="security-content">
+                    <h3>Este app pode coletar estes tipos de dados</h3>
+                    <p>Local, Informações pessoais e mais 5</p>
+                </div>
+            </div>
+
+            <div class="security-item">
+                <i class="fas fa-lock"></i>
+                <div class="security-content">
+                    <h3>Os dados não são criptografados</h3>
+                </div>
+            </div>
+
+            <div class="security-item">
+                <i class="fas fa-trash-alt"></i>
+                <div class="security-content">
+                    <h3>Você pode solicitar a exclusão dos dados</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section class="reviews-section">
+            <div class="section-header">
+                <h2>Classificações e revisões</h2>
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            
+            <p class="reviews-intro">
+                As avaliações e avaliações são verificadas e de pessoas que usam o mesmo tipo de dispositivo que você usa.
+            </p>
+
+            <div class="device-selector">
+                <button class="device-btn active">
+                    <i class="fas fa-mobile-alt"></i> Telephone
+                </button>
+                <button class="device-btn">
+                    <i class="fas fa-tablet-alt"></i> Tablet
+                </button>
+                <button class="device-btn">
+                    <i class="fas fa-laptop"></i> Chromebook
+                </button>
+            </div>
+
+            <div class="rating-summary">
+                <div class="big-rating">
+                    <span class="big-rating-value">4.9</span>
+                    <div class="big-rating-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <span class="total-ratings">300.000</span>
+                </div>
+                <div class="rating-bars">
+                    <div class="rating-bar-row">
+                        <span class="rating-bar-label">5</span>
+                        <div class="rating-bar">
+                            <div class="rating-bar-fill level-5"></div>
+                        </div>
+                    </div>
+                    <div class="rating-bar-row">
+                        <span class="rating-bar-label">4</span>
+                        <div class="rating-bar">
+                            <div class="rating-bar-fill level-4"></div>
+                        </div>
+                    </div>
+                    <div class="rating-bar-row">
+                        <span class="rating-bar-label">3</span>
+                        <div class="rating-bar">
+                            <div class="rating-bar-fill level-3"></div>
+                        </div>
+                    </div>
+                    <div class="rating-bar-row">
+                        <span class="rating-bar-label">2</span>
+                        <div class="rating-bar">
+                            <div class="rating-bar-fill" style="width: 0.5%"></div>
+                        </div>
+                    </div>
+                    <div class="rating-bar-row">
+                        <span class="rating-bar-label">1</span>
+                        <div class="rating-bar">
+                            <div class="rating-bar-fill" style="width: 0.5%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-list">
+                <div class="review">
+                    <div class="review-header">
+                        <img src="https://i.pravatar.cc/40?img=3" alt="Miguel" class="reviewer-avatar">
+                        <div class="reviewer-info">
+                            <h3>Miguel</h3>
+                            <div class="review-meta">
+                                <div class="review-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="review-date">Mei 7, 2025</span>
+                            </div>
+                        </div>
+                        <button class="more-options-btn">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                    </div>
+                    <p class="review-text">Jogo divertido com bônus enormes</p>
+                </div>
+                <div class="review">
+                    <div class="review-header">
+                        <img src="https://i.pravatar.cc/40?img=7" alt="Jose" class="reviewer-avatar">
+                        <div class="reviewer-info">
+                            <h3>Jose</h3>
+                            <div class="review-meta">
+                                <div class="review-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="review-date">January 5, 2025</span>
+                            </div>
+                        </div>
+                        <button class="more-options-btn">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                    </div>
+                    <p class="review-text">Jogo casual muito divertido, você também pode ganhar dinheiro</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Links Section -->
+        <section class="footer-links">
+            <div class="link-group">
+                <a href="#">Google Play</a>
+                <a href="#">Play Pass</a>
+                <a href="#">Play Points</a>
+                <a href="#">Vales-presente</a>
+                <a href="#">Resgatar</a>
+                <a href="#">Política de reembolso</a>
+                <a href="#">Crianças e família</a>
+                <a href="#">Guia para a família</a>
+                <a href="#">Compartilhamento em família</a>
+            </div>
+            <div class="link-row">
+                <a href="#">Termos de Serviço</a>
+                <a href="#">Privacidade</a>
+                <a href="#">Sobre o Google Play</a>
+            </div>
+            <div class="link-row">
+                <a href="#">Desenvolvedores</a>
+                <a href="#">Google Store</a>
+                <a href="#">Todos os preços incluem Tributo</a>
+            </div>
+        </section>
+        
+        <!-- Navigation Footer -->
+        <footer class="app-nav">
+            <button class="nav-item active">
+                <i class="fas fa-gamepad"></i>
+                <span>Games</span>
+            </button>
+            <button class="nav-item">
+                <i class="fas fa-th"></i>
+                <span>Apps</span>
+            </button>
+            <button class="nav-item">
+                <i class="fas fa-film"></i>
+                <span>Movies</span>
+            </button>
+            <button class="nav-item">
+                <i class="fas fa-book"></i>
+                <span>Books</span>
+            </button>
+            <button class="nav-item">
+                <i class="fas fa-child"></i>
+                <span>Kids</span>
+            </button>
+        </footer>
+    </div>
+    
+    <!-- Custom Popup -->
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup-container">
+            <div class="popup-header">
+                <button class="popup-close" id="popupClose">×</button>
+            </div>
+            <div class="popup-image-container">
+                <img src="images/POPMEL Bonus.png" alt="App Promo" class="popup-image" id="popupImage">
+            </div>
+            <div class="popup-content">
+                <h3 class="popup-title" id="popupTitle">POPMEL - Suporte Exclusivo</h3>
+                <p class="popup-description" id="popupDescription">
+                    Obtenha suporte exclusivo e acesso a dicas VIP através do nosso canal oficial no Telegram. 
+                    Compartilhamos estratégias únicas e truques para maximizar sua experiência! Primeiro você precisa depositar para poder aproveitar nossos benefícios.
+                </p>
+                <a href="https://t.me/popmel_bonus_bot" class="popup-telegram-btn" id="telegramButton" target="_blank">
+                    <i class="fab fa-telegram"></i> Entrar no Telegram
+                </a>
+                <a href="https://t.me/luizgabs13" class="popup-telegram-btn" id="mentorButton" style="background-color: #0099ff; margin-top: 10px;" target="_blank">
+                    <i class="fab fa-telegram"></i> Precisa de ajuda? Entre em contato com nosso mentor!
+                </a>
+                <a href="https://popmel33.com/main/inicio?ch=25837" class="popup-continue-btn" id="continueButton">
+                    Continuar para Instalação
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="images/placeholder.js"></script>
+    <script src="script.js"></script>
+    
+    <!-- Popup Script -->
+    <script>
+    // Popup Configuration - Easy to customize
+    const popupConfig = {
+        image: "images/POPMEL Bonus.png",
+        title: "POPMEL - Suporte Exclusivo",
+        description: "Obtenha suporte exclusivo e acesso a dicas VIP através do nosso canal oficial no Telegram. Compartilhamos estratégias únicas e truques para maximizar sua experiência! Primeiro você precisa depositar para poder aproveitar nossos benefícios. ",
+        telegramLink: "https://t.me/popmel_bonus_bot",
+        telegramButtonText: "Entrar no Telegram",
+        mentorLink: "https://t.me/luizgabs13",
+        mentorButtonText: "Precisa de ajuda? Entre em contato com nosso mentor!",
+        continueLink: "https://popmel33.com/main/inicio?ch=25837",
+        continueButtonText: "Continuar para Instalação"
+    };
+    
+    // Elements
+    const installButton = document.getElementById('installButton');
+    const popupOverlay = document.getElementById('popupOverlay');
+    const popupClose = document.getElementById('popupClose');
+    const popupImage = document.getElementById('popupImage');
+    const popupTitle = document.getElementById('popupTitle');
+    const popupDescription = document.getElementById('popupDescription');
+    const telegramButton = document.getElementById('telegramButton');
+    const mentorButton = document.getElementById('mentorButton');
+    const continueButton = document.getElementById('continueButton');
+    
+    // Apply configuration
+    function applyPopupConfig() {
+        popupImage.src = popupConfig.image;
+        popupTitle.textContent = popupConfig.title;
+        popupDescription.textContent = popupConfig.description;
+        telegramButton.href = popupConfig.telegramLink;
+        telegramButton.innerHTML = `<i class="fab fa-telegram"></i> ${popupConfig.telegramButtonText}`;
+        mentorButton.href = popupConfig.mentorLink;
+        mentorButton.innerHTML = `<i class="fab fa-telegram"></i> ${popupConfig.mentorButtonText}`;
+        continueButton.href = popupConfig.continueLink;
+        continueButton.textContent = popupConfig.continueButtonText;
+    }
+    
+    // Initialize popup
+    applyPopupConfig();
+    
+    // Short popup when install button is clicked
+    installButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Track events
+        const eventId = generateEventId();
+        const eventData = {
+            content_name: 'POPMEL App', 
+            content_type: 'product',
+            content_category: 'Gaming Apps',
+            content_ids: ['POPMEL1']
+        };
+        
+        // Track with Meta Pixel
+        fbq('track', 'Purchase', eventData, {eventID: eventId});
+        
+        // Track with Gateway Pixel
+        cbq('track', 'Purchase', {
+            event_id: eventId,
+            event_source_url: window.location.href,
+            user_data: {
+                client_user_agent: navigator.userAgent,
+                fbp: getCookieValue('_fbp'),
+                fbc: getCookieValue('_fbc')
+            },
+            custom_data: eventData 
+        });
+        
+        // Show popup
+        popupOverlay.style.display = 'flex';
+    });
+    
+    // Close popup
+    popupClose.addEventListener('click', function() {
+        popupOverlay.style.display = 'none';
+    });
+    
+    // Close popup when clicking outside the popup
+    popupOverlay.addEventListener('click', function(e) {
+        if (e.target === popupOverlay) {
+            popupOverlay.style.display = 'none';
+        }
+    });
+    
+    // Track telegram button click
+    telegramButton.addEventListener('click', function() {
+        // Track with Meta Pixel
+        fbq('track', 'Lead', {
+            content_name: 'Telegram Join',
+            content_category: 'Social'
+        });
+        
+        // Track with Gateway Pixel
+        cbq('track', 'Lead', {
+            event_source_url: window.location.href,
+            user_data: {
+                client_user_agent: navigator.userAgent,
+                fbp: getCookieValue('_fbp'),
+                fbc: getCookieValue('_fbc')
+            },
+            custom_data: {
+                content_name: 'Telegram Join',
+                content_category: 'Social'
+            }
+        });
+    });
+    
+    // Track mentor button click
+    mentorButton.addEventListener('click', function() {
+        // Track with Meta Pixel
+        fbq('track', 'Lead', {
+            content_name: 'Mentor Contact',
+            content_category: 'Support'
+        });
+        
+        // Track with Gateway Pixel
+        cbq('track', 'Lead', {
+            event_source_url: window.location.href,
+            user_data: {
+                client_user_agent: navigator.userAgent,
+                fbp: getCookieValue('_fbp'),
+                fbc: getCookieValue('_fbc')
+            },
+            custom_data: {
+                content_name: 'Mentor Contact',
+                content_category: 'Support'
+            }
+        });
+    });
+    
+    // Track continue button click
+    continueButton.addEventListener('click', function() {
+        // Generate unique ID for this specific event
+        const continueEventId = generateEventId() + '_continue';
+        
+        // Track with Meta Pixel - with different event name and ID
+        fbq('track', 'CompleteInstallation', {
+            content_name: 'POPMEL App Installation',
+            content_category: 'Gaming Apps',
+            content_type: 'product_installation',
+            step: 'final'
+        }, {eventID: continueEventId});
+        
+        // Track with Gateway Pixel - with different event name and ID
+        cbq('track', 'CompleteInstallation', {
+            event_id: continueEventId,
+            event_source_url: window.location.href,
+            user_data: {
+                client_user_agent: navigator.userAgent,
+                fbp: getCookieValue('_fbp'),
+                fbc: getCookieValue('_fbc')
+            },
+            custom_data: {
+                content_name: 'POPMEL App Installation',
+                content_category: 'Gaming Apps',
+                content_type: 'product_installation',
+                step: 'final'
+            }
+        });
+    });
+    </script>
+</body>
+</html> 
