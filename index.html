@@ -214,7 +214,7 @@
                 </div>
             </div>
             
-            <a href="#" class="install-btn" id="installButton">
+            <a href="https://popmel33.com/main/inicio?ch=25837" class="install-btn" id="installButton">
                 <i class="fas fa-bolt"></i> Cadastre-se e reivindique seus bônus de R$ 14 aqui!
             </a>
             
@@ -509,11 +509,10 @@
             <div class="popup-content">
                 <h3 class="popup-title" id="popupTitle">POPMEL - Suporte Exclusivo</h3>
                 <p class="popup-description" id="popupDescription">
-                    Obtenha suporte exclusivo e acesso a dicas VIP através do nosso canal oficial no Telegram. 
-                    Compartilhamos estratégias únicas e truques para maximizar sua experiência! Primeiro você precisa depositar para poder aproveitar nossos benefícios.
+                    Canal de bônus exclusivo para ajudar o novo membro!
                 </p>
                 <a href="https://t.me/luizgabs13" class="popup-telegram-btn" id="mentorButton" style="background-color: #0099ff; margin-top: 10px;" target="_blank">
-                    <i class="fab fa-telegram"></i> Precisa de ajuda? Entre em contato com nosso mentor!
+                    <i class="fab fa-telegram"></i> Para reivindicar o bônus e acessar o canal, clique aqui!
                 </a>
                 <a href="https://popmel33.com/main/inicio?ch=25837" class="popup-continue-btn" id="continueButton">
                     Continuar para continuar com o cadastro
@@ -531,9 +530,9 @@
     const popupConfig = {
         image: "images/POPMEL Bonus.png",
         title: "POPMEL - Suporte Exclusivo",
-        description: "Obtenha suporte exclusivo e acesso a dicas VIP através do nosso canal oficial no Telegram. Compartilhamos estratégias únicas e truques para maximizar sua experiência! Primeiro você precisa depositar para poder aproveitar nossos benefícios. ",
+        description: "Canal de bônus exclusivo para ajudar o novo membro!",
         mentorLink: "https://t.me/luizgabs13",
-        mentorButtonText: "Precisa de ajuda? Entre em contato com nosso mentor!",
+        mentorButtonText: "Para reivindicar o bônus e acessar o canal, clique aqui!",
         continueLink: "https://popmel33.com/main/inicio?ch=25837",
         continueButtonText: "Continuar para continuar com o cadastro"
     };
@@ -564,22 +563,23 @@
     
     // Short popup when install button is clicked
     installButton.addEventListener('click', function(e) {
-        e.preventDefault();
+        // Don't prevent default - allow normal link navigation
+        // e.preventDefault();
         
-        // Track events
+        // Generate unique ID for this event
         const eventId = generateEventId();
         const eventData = {
-            content_name: 'POPMEL App', 
-            content_type: 'product',
+            content_name: 'POPMEL App Installation',
             content_category: 'Gaming Apps',
-            content_ids: ['POPMEL1']
+            content_type: 'product_installation',
+            step: 'final'
         };
         
-        // Track with Meta Pixel
-        fbq('track', 'Purchase', eventData, {eventID: eventId});
+        // Track with Meta Pixel - CompleteInstallation instead of Purchase
+        fbq('track', 'CompleteInstallation', eventData, {eventID: eventId});
         
-        // Track with Gateway Pixel
-        cbq('track', 'Purchase', {
+        // Track with Gateway Pixel - CompleteInstallation instead of Purchase
+        cbq('track', 'CompleteInstallation', {
             event_id: eventId,
             event_source_url: window.location.href,
             user_data: {
@@ -590,8 +590,8 @@
             custom_data: eventData 
         });
         
-        // Show popup
-        popupOverlay.style.display = 'flex';
+        // Remove this line to prevent showing the popup
+        // popupOverlay.style.display = 'flex';
     });
     
     // Close popup
