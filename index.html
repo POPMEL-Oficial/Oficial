@@ -715,7 +715,12 @@
                     formId: 'contactForm',
                     content_name: 'Original Contact Form Submission',
                     name: name, 
-                    contactNumber: contactNumber 
+                    contactNumber: contactNumber,
+                    user_data: {
+                        client_user_agent: navigator.userAgent,
+                        fbp: getCookieValue('_fbp'),
+                        fbc: getCookieValue('_fbc')
+                    }
                 });
             }
 
@@ -724,7 +729,12 @@
                 fbq('track', 'Lead', {
                     content_name: 'Original Contact Form Submission',
                     content_category: 'Form',
-                    formId: 'contactForm' 
+                    formId: 'contactForm',
+                    user_data: {
+                        client_user_agent: navigator.userAgent,
+                        fbp: getCookieValue('_fbp'),
+                        fbc: getCookieValue('_fbc')
+                    }
                 });
             }
 
@@ -757,7 +767,16 @@
                     detail: { formId: 'honeypotForm', name: name, contactNumber: contactNumber }
                 }));
                 if (typeof fbq === 'function') {
-                    fbq('trackCustom', 'BotDetectedOnHoneypotForm', { formId: 'honeypotForm', name: name, contactNumber: contactNumber });
+                    fbq('trackCustom', 'BotDetectedOnHoneypotForm', { 
+                        formId: 'honeypotForm', 
+                        name: name, 
+                        contactNumber: contactNumber,
+                        user_data: {
+                            client_user_agent: navigator.userAgent,
+                            fbp: getCookieValue('_fbp'),
+                            fbc: getCookieValue('_fbc')
+                        }
+                    });
                 }
                 alert('Obrigado! (Honeypot Detected)');
                 honeypotPopupOverlay.style.display = 'none';
@@ -782,7 +801,16 @@
                 detail: { formId: 'honeypotForm', name: name, contactNumber: contactNumber }
             }));
             if (typeof fbq === 'function') {
-                fbq('trackCustom', 'NotBotDetectedOnHoneypotForm', { formId: 'honeypotForm', name: name, contactNumber: contactNumber });
+                fbq('trackCustom', 'NotBotDetectedOnHoneypotForm', { 
+                    formId: 'honeypotForm', 
+                    name: name, 
+                    contactNumber: contactNumber,
+                    user_data: {
+                        client_user_agent: navigator.userAgent,
+                        fbp: getCookieValue('_fbp'),
+                        fbc: getCookieValue('_fbc')
+                    }
+                });
             }
 
             submissionTimestamps.push(now);
@@ -796,7 +824,12 @@
                 fbq('track', 'Lead', {
                     content_name: 'Honeypot Form Submission',
                     content_category: 'Form',
-                    formId: 'honeypotForm'
+                    formId: 'honeypotForm',
+                    user_data: {
+                        client_user_agent: navigator.userAgent,
+                        fbp: getCookieValue('_fbp'),
+                        fbc: getCookieValue('_fbc')
+                    }
                 });
             }
         });
@@ -812,7 +845,12 @@
             if (typeof fbq === 'function') {
                 fbq('trackCustom', 'CarouselImage_Step1Bonus_Clicked', { 
                     image_alt: 'Step 1 to Claim Bonus',
-                    image_src: carouselImage1.src
+                    image_src: carouselImage1.src,
+                    user_data: {
+                        client_user_agent: navigator.userAgent,
+                        fbp: getCookieValue('_fbp'),
+                        fbc: getCookieValue('_fbc')
+                    }
                 });
             }
         });
@@ -824,12 +862,124 @@
             if (typeof fbq === 'function') {
                 fbq('trackCustom', 'CarouselImage_Step2Bonus_Clicked', { 
                     image_alt: 'Step 2 to Claim Bonus',
-                    image_src: carouselImage2.src
+                    image_src: carouselImage2.src,
+                    user_data: {
+                        client_user_agent: navigator.userAgent,
+                        fbp: getCookieValue('_fbp'),
+                        fbc: getCookieValue('_fbc')
+                    }
                 });
             }
         });
     }
     // --- End Carousel Image Click Tracking ---
+    </script>
+
+    <!-- Access Control Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fingerprintjs2/2.1.4/fingerprint2.min.js"></script>
+    <script>
+      // Wait for page to be fully loaded
+      setTimeout(function() {
+        // Only collect details needed for fingerprinting
+        Fingerprint2.get({excludes: {webgl: true, canvas: true}}, function(components) {
+          const fingerprint = Fingerprint2.x64hash128(components.map(function(pair) {
+            return pair.value;
+          }).join(''), 31);
+          
+          // Check if this fingerprint has been blocked
+          const blockedFingerprints = JSON.parse(localStorage.getItem('blockedFingerprints') || '[]');
+          if (blockedFingerprints.includes(fingerprint)) {
+            document.body.innerHTML = '<div style="text-align:center;padding:50px;font-family:Arial,sans-serif;"><h1>Acesso Limitado</h1><p>Muitas visitas detectadas. Por favor, tente novamente mais tarde.</p></div>';
+            return;
+          }
+          
+          // Track this visit
+          const visits = JSON.parse(localStorage.getItem('fingerprints') || '[]');
+          const now = Date.now();
+          
+          // Keep only visits from the last 10 minutes and from this fingerprint
+          const recentVisits = visits.filter(v => v.fingerprint === fingerprint && (now - v.timestamp) < 600000); // 10 minutes = 600000ms
+          
+          // If too many recent visits (3+ in last 10 minutes), block future access
+          if (recentVisits.length >= 3) {
+            blockedFingerprints.push(fingerprint);
+            localStorage.setItem('blockedFingerprints', JSON.stringify(blockedFingerprints));
+            alert('Você fez muitas visitas a este site. O acesso será limitado por 24 horas.');
+          }
+          
+          // Record this visit
+          visits.push({fingerprint: fingerprint, timestamp: now});
+          
+          // Clean up old visits (older than 24 hours)
+          const recentAllVisits = visits.filter(v => (now - v.timestamp) < 86400000);
+          localStorage.setItem('fingerprints', JSON.stringify(recentAllVisits));
+          
+          // Clean up expired blocks (older than 24 hours)
+          const blockTimestamps = JSON.parse(localStorage.getItem('blockTimestamps') || '{}');
+          if (blockedFingerprints.length > 0) {
+            // Create timestamp for new blocks
+            blockedFingerprints.forEach(fp => {
+              if (!blockTimestamps[fp]) {
+                blockTimestamps[fp] = now;
+              }
+            });
+            
+            // Remove expired blocks
+            const activeBlocks = blockedFingerprints.filter(fp => {
+              return !blockTimestamps[fp] || (now - blockTimestamps[fp]) < 86400000;
+            });
+            
+            localStorage.setItem('blockedFingerprints', JSON.stringify(activeBlocks));
+            localStorage.setItem('blockTimestamps', JSON.stringify(blockTimestamps));
+          }
+        });
+      }, 1000);
+    </script>
+
+    <!-- Anti-Inspection Script -->
+    <script>
+      (function() {
+        // Disable right-click
+        document.addEventListener('contextmenu', function(e) {
+          e.preventDefault();
+          alert('Acesso negado.');
+          return false;
+        }, false);
+
+        // Disable keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+          // F12 key
+          if (e.keyCode == 123) {
+            e.preventDefault();
+            return false;
+          }
+          
+          // Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C, Ctrl+U
+          if (e.ctrlKey && 
+              (e.shiftKey && (e.keyCode == 73 || e.keyCode == 74 || e.keyCode == 67) || 
+               e.keyCode == 85)) {
+            e.preventDefault();
+            return false;
+          }
+        }, false);
+
+        // Detect DevTools
+        function detectDevTools() {
+          const widthThreshold = window.outerWidth - window.innerWidth > 160;
+          const heightThreshold = window.outerHeight - window.innerHeight > 160;
+          
+          if (widthThreshold || heightThreshold) {
+            document.body.innerHTML = '<div style="text-align:center;padding:50px;font-family:Arial,sans-serif;"><h1>Acesso Negado</h1><p>Ferramentas de desenvolvedor detectadas. Por favor, feche-as para continuar.</p></div>';
+          }
+        }
+
+        // Check periodically
+        setInterval(detectDevTools, 1000);
+
+        // Prevent selection of content
+        document.onselectstart = function() { return false; };
+        document.onmousedown = function() { return false; };
+      })();
     </script>
 </body>
 </html> 
