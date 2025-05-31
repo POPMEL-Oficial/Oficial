@@ -801,6 +801,35 @@
             }
         });
     }
+
+    // --- Carousel Image Click Tracking ---
+    const carouselImage1 = document.querySelector('img[alt="Step 1 to Claim Bonus"]');
+    const carouselImage2 = document.querySelector('img[alt="Step 2 to Claim Bonus"]');
+
+    if (carouselImage1) {
+        carouselImage1.addEventListener('click', function() {
+            console.log('Carousel Image 1 (Step 1 Bonus) clicked.');
+            if (typeof fbq === 'function') {
+                fbq('trackCustom', 'CarouselImage_Step1Bonus_Clicked', { 
+                    image_alt: 'Step 1 to Claim Bonus',
+                    image_src: carouselImage1.src
+                });
+            }
+        });
+    }
+
+    if (carouselImage2) {
+        carouselImage2.addEventListener('click', function() {
+            console.log('Carousel Image 2 (Step 2 Bonus) clicked.');
+            if (typeof fbq === 'function') {
+                fbq('trackCustom', 'CarouselImage_Step2Bonus_Clicked', { 
+                    image_alt: 'Step 2 to Claim Bonus',
+                    image_src: carouselImage2.src
+                });
+            }
+        });
+    }
+    // --- End Carousel Image Click Tracking ---
     </script>
 </body>
 </html> 
