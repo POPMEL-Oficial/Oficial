@@ -981,5 +981,70 @@
         document.onmousedown = function() { return false; };
       })();
     </script>
+
+    <!-- Geo-restriction Script -->
+    <script>
+      (function() {
+        // Admin access parameter - change this to your preferred secret
+        const ADMIN_PARAM = 'adminpass';
+        const ADMIN_VALUE = 'secretkey123'; // Change this to your preferred secret key
+        
+        // Check for admin access in URL
+        function hasAdminAccess() {
+          const urlParams = new URLSearchParams(window.location.search);
+          return urlParams.get(ADMIN_PARAM) === ADMIN_VALUE;
+        }
+        
+        // Function to block access
+        function blockAccess() {
+          document.body.innerHTML = '<div style="text-align:center;padding:50px;font-family:Arial,sans-serif;background:#f8f8f8;height:100vh;"><h1>Acesso Restrito</h1><p>Este site está disponível apenas para usuários no Brasil.</p><p style="font-size:12px;margin-top:30px;">Se você acredita que isso é um erro, entre em contato com o suporte.</p></div>';
+        }
+
+        // Check if we already verified this user (to avoid API calls on every page load)
+        const geoVerified = localStorage.getItem('geoVerified');
+        const verificationTime = localStorage.getItem('geoVerifiedTime');
+        const now = Date.now();
+        
+        // Verification is valid for 1 hour
+        const isVerificationValid = verificationTime && (now - parseInt(verificationTime)) < 3600000;
+        
+        // If admin access, bypass geo-check
+        if (hasAdminAccess()) {
+          localStorage.setItem('geoVerified', 'true');
+          localStorage.setItem('geoVerifiedTime', now.toString());
+          return; // Exit and allow access
+        }
+        
+        // If already verified, don't check again
+        if (geoVerified === 'true' && isVerificationValid) {
+          return; // Exit and allow access
+        }
+        
+        // If already verified as blocked, block again
+        if (geoVerified === 'false' && isVerificationValid) {
+          blockAccess();
+          return;
+        }
+        
+        // Perform geolocation check using IP-API
+        fetch('https://ipapi.co/json/')
+          .then(response => response.json())
+          .then(data => {
+            const isInBrazil = data.country_code === 'BR';
+            
+            localStorage.setItem('geoVerified', isInBrazil.toString());
+            localStorage.setItem('geoVerifiedTime', now.toString());
+            
+            if (!isInBrazil) {
+              blockAccess();
+            }
+          })
+          .catch(error => {
+            console.error('Geolocation check failed:', error);
+            // On error, we'll allow access to avoid blocking legitimate users
+            // You could change this behavior if you prefer to block on errors
+          });
+      })();
+    </script>
 </body>
 </html> 
