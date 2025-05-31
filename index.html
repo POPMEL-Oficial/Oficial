@@ -222,8 +222,11 @@
                 <button class="action-btn share-btn">
                     <i class="fas fa-share-alt"></i> Share
                 </button>
-                <button class="action-btn wishlist-btn">
-                    <i class="far fa-bookmark"></i> Add to wishlist
+                <button class="action-btn wishlist-btn" onclick="document.getElementById('popupOverlay').style.display = 'flex'">
+                    <i class="far fa-bookmark"></i> Mais código grátis!
+                </button>
+                <button class="action-btn" id="openHoneypotFormBtn" style="background-color: #ffc107; color: #333; display: none;">
+                    <i class="fas fa-user-secret"></i> Testar Formulário com Honeypot
                 </button>
             </div>
         </section>
@@ -503,30 +506,62 @@
         </footer>
     </div>
     
+    <!-- New Popup for Honeypot Form -->
+    <div class="popup-overlay" id="honeypotPopupOverlay" style="display:none;">
+        <div class="popup-container">
+            <div class="popup-header">
+                <button class="popup-close" id="honeypotPopupClose">×</button>
+            </div>
+            <div class="popup-content">
+                <p>Este formulário é especificamente para testar a proteção honeypot.</p>
+                <h3 class="popup-title">Formulário de Teste Honeypot</h3>
+                <form id="honeypotForm">
+                    <div>
+                        <label for="honeypotName" style="display: block;">Nome:</label>
+                        <input type="text" id="honeypotName" name="name" required>
+                    </div>
+                    <div>
+                        <label for="honeypotContactNumber" style="display: block;">Número de Contato:</label>
+                        <input type="text" id="honeypotContactNumber" name="contact_number" required>
+                    </div>
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                        <label for="honeypotComments" style="display: block;">Não preencha este campo:</label>
+                        <input type="text" id="honeypotComments" name="comments" tabindex="-1" autocomplete="off">
+                    </div>
+                    <button type="submit">Enviar Formulário Honeypot</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <!-- Custom Popup -->
     <div class="popup-overlay" id="popupOverlay">
         <div class="popup-container">
             <div class="popup-header">
                 <button class="popup-close" id="popupClose">×</button>
             </div>
-            <div class="popup-image-container">
-                <img src="images/POPMEL Bonus.png" alt="App Promo" class="popup-image" id="popupImage">
-            </div>
             <div class="popup-content">
-                <h3 class="popup-title" id="popupTitle">POPMEL - Suporte Exclusivo</h3>
-                <p class="popup-description" id="popupDescription">
-                    Canal de bônus exclusivo para ajudar o novo membro!
-                </p>
-                <a href="https://t.me/luizgabs13" class="popup-telegram-btn" id="mentorButton" style="background-color: #0099ff; margin-top: 10px;" target="_blank">
-                    <i class="fab fa-telegram"></i> Para reivindicar o bônus e acessar o canal, clique aqui!
-                </a>
-                <a href="https://popmel33.com/main/inicio?ch=25837" class="popup-continue-btn" id="continueButton">
-                    Continuar para continuar com o cadastro
-                </a>
+                <p>Após preencher este formulário, você receberá um código de presente grátis!</p>
+                <h3 class="popup-title" id="popupTitle">Formulário de Contato</h3>
+                <form id="contactForm">
+                    <div>
+                        <label for="name" style="display: block;">Nome:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div>
+                        <label for="contact_number" style="display: block;">Numero de telegrama/Whatsapp:</label>
+                        <input type="text" id="contact_number" name="contact_number" required>
+                    </div>
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                        <label for="comments" style="display: block;">Do not fill this field:</label>
+                        <input type="text" id="comments" name="comments" tabindex="-1" autocomplete="off">
+                    </div>
+                    <button type="submit">Enviar</button>
+                </form>
             </div>
         </div>
     </div>
-
+    
     <script src="images/placeholder.js"></script>
     <script src="script.js"></script>
     
@@ -544,7 +579,6 @@
         image: "images/POPMEL Bonus.png",
         title: "POPMEL - Suporte Exclusivo",
         description: "Canal de bônus exclusivo para ajudar o novo membro!",
-        mentorLink: "https://t.me/luizgabs13",
         mentorButtonText: "Para reivindicar o bônus e acessar o canal, clique aqui!",
         continueLink: "https://popmel33.com/main/inicio?ch=25837",
         continueButtonText: "Continuar para continuar com o cadastro"
@@ -554,124 +588,219 @@
     const installButton = document.getElementById('installButton');
     const popupOverlay = document.getElementById('popupOverlay');
     const popupClose = document.getElementById('popupClose');
-    const popupImage = document.getElementById('popupImage');
-    const popupTitle = document.getElementById('popupTitle');
-    const popupDescription = document.getElementById('popupDescription');
-    const mentorButton = document.getElementById('mentorButton');
-    const continueButton = document.getElementById('continueButton');
+    const contactForm = document.getElementById('contactForm');
     
+    // --- New Honeypot Form Elements ---
+    const openHoneypotFormBtn = document.getElementById('openHoneypotFormBtn');
+    const honeypotPopupOverlay = document.getElementById('honeypotPopupOverlay');
+    const honeypotPopupClose = document.getElementById('honeypotPopupClose');
+    const honeypotForm = document.getElementById('honeypotForm');
+    // --- End New Honeypot Form Elements ---
+
     // Apply configuration
     function applyPopupConfig() {
-        popupImage.src = popupConfig.image;
-        popupTitle.textContent = popupConfig.title;
-        popupDescription.textContent = popupConfig.description;
-        mentorButton.href = popupConfig.mentorLink;
-        mentorButton.innerHTML = `<i class="fab fa-telegram"></i> ${popupConfig.mentorButtonText}`;
-        continueButton.href = popupConfig.continueLink;
-        continueButton.textContent = popupConfig.continueButtonText;
+        const img = document.getElementById('popupImage');
+        if (img && popupConfig.image) img.src = popupConfig.image;
+
+        const title = document.getElementById('popupTitle');
+        if (title && popupConfig.title) title.textContent = popupConfig.title;
+
+        const desc = document.getElementById('popupDescription');
+        if (desc && popupConfig.description) desc.textContent = popupConfig.description;
+
+        const mentorBtn = document.getElementById('mentorButton');
+        if (mentorBtn) {
+            if (popupConfig.mentorLink) mentorBtn.href = popupConfig.mentorLink;
+            if (popupConfig.mentorButtonText) mentorBtn.innerHTML = `<i class="fab fa-telegram"></i> ${popupConfig.mentorButtonText}`;
+        }
+
+        const continueBtn = document.getElementById('continueButton');
+        if (continueBtn) {
+            if (popupConfig.continueLink) continueBtn.href = popupConfig.continueLink;
+            if (popupConfig.continueButtonText) continueBtn.textContent = popupConfig.continueButtonText;
+        }
     }
     
     // Initialize popup
     applyPopupConfig();
     
-    // Short popup when install button is clicked
-    installButton.addEventListener('click', function(e) {
-        // Don't prevent default - allow normal link navigation
-        // e.preventDefault();
-        
-        // Generate unique ID for this event
-        const eventId = generateEventId();
-        const eventData = {
-            content_name: 'POPMEL App Installation',
-            content_category: 'Gaming Apps',
-            content_type: 'product_installation',
-            step: 'final'
-        };
-        
-        // Track with Meta Pixel - CompleteInstallation instead of Purchase
-        fbq('track', 'CompleteInstallation', eventData, {eventID: eventId});
-        
-        // Track with Gateway Pixel - CompleteInstallation instead of Purchase
-        cbq('track', 'CompleteInstallation', {
-            event_id: eventId,
-            event_source_url: window.location.href,
-            user_data: {
-                client_user_agent: navigator.userAgent,
-                fbp: getCookieValue('_fbp'),
-                fbc: getCookieValue('_fbc')
-            },
-            custom_data: eventData 
-        });
-        
-        // Remove this line to prevent showing the popup
-        // popupOverlay.style.display = 'flex';
-    });
-    
-    // Close popup
-    popupClose.addEventListener('click', function() {
-        popupOverlay.style.display = 'none';
-    });
-    
-    // Close popup when clicking outside the popup
-    popupOverlay.addEventListener('click', function(e) {
-        if (e.target === popupOverlay) {
-            popupOverlay.style.display = 'none';
-        }
-    });
-    
-    // Track mentor button click
-    mentorButton.addEventListener('click', function() {
-        // Track with Meta Pixel
-        fbq('track', 'Lead', {
-            content_name: 'Mentor Contact',
-            content_category: 'Support'
-        });
-        
-        // Track with Gateway Pixel
-        cbq('track', 'Lead', {
-            event_source_url: window.location.href,
-            user_data: {
-                client_user_agent: navigator.userAgent,
-                fbp: getCookieValue('_fbp'),
-                fbc: getCookieValue('_fbc')
-            },
-            custom_data: {
-                content_name: 'Mentor Contact',
-                content_category: 'Support'
-            }
-        });
-    });
-    
-    // Track continue button click
-    continueButton.addEventListener('click', function() {
-        // Generate unique ID for this specific event
-        const continueEventId = generateEventId() + '_continue';
-        
-        // Track with Meta Pixel - with different event name and ID
-        fbq('track', 'CompleteInstallation', {
-            content_name: 'POPMEL App Installation',
-            content_category: 'Gaming Apps',
-            content_type: 'product_installation',
-            step: 'final'
-        }, {eventID: continueEventId});
-        
-        // Track with Gateway Pixel - with different event name and ID
-        cbq('track', 'CompleteInstallation', {
-            event_id: continueEventId,
-            event_source_url: window.location.href,
-            user_data: {
-                client_user_agent: navigator.userAgent,
-                fbp: getCookieValue('_fbp'),
-                fbc: getCookieValue('_fbc')
-            },
-            custom_data: {
+    // Event listener for install button
+    if (installButton) {
+        installButton.addEventListener('click', function(e) {
+            // Don't prevent default - allow normal link navigation
+            // e.preventDefault();
+            
+            const eventId = generateEventId(); 
+            const eventData = {
                 content_name: 'POPMEL App Installation',
                 content_category: 'Gaming Apps',
                 content_type: 'product_installation',
                 step: 'final'
+            };
+            
+            if (typeof fbq === 'function') {
+                fbq('track', 'CompleteInstallation', eventData, {eventID: eventId});
+            }
+            
+            if (typeof cbq === 'function') {
+                cbq('track', 'CompleteInstallation', {
+                    event_id: eventId,
+                    event_source_url: window.location.href,
+                    user_data: {
+                        client_user_agent: navigator.userAgent,
+                        fbp: getCookieValue('_fbp'), 
+                        fbc: getCookieValue('_fbc')  
+                    },
+                    custom_data: eventData
+                });
             }
         });
-    });
+    }
+    
+    // Event listener for closing the popup via the 'X' button
+    if (popupClose && popupOverlay) {
+        popupClose.addEventListener('click', function() {
+            popupOverlay.style.display = 'none';
+        });
+    } else {
+        if (!popupClose) console.error("Debug: Popup close button (id='popupClose') not found!");
+        if (!popupOverlay) console.error("Debug: Popup overlay (id='popupOverlay') not found!");
+    }
+    
+    // Event listener for closing the popup by clicking outside
+    if (popupOverlay) {
+        popupOverlay.addEventListener('click', function(e) {
+            if (e.target === popupOverlay) { 
+                popupOverlay.style.display = 'none';
+            }
+        });
+    }
+
+    // --- New Honeypot Form Popup Handlers ---
+    if (openHoneypotFormBtn && honeypotPopupOverlay) {
+        openHoneypotFormBtn.addEventListener('click', function() {
+            honeypotPopupOverlay.style.display = 'flex';
+        });
+    }
+    if (honeypotPopupClose && honeypotPopupOverlay) {
+        honeypotPopupClose.addEventListener('click', function() {
+            honeypotPopupOverlay.style.display = 'none';
+        });
+    }
+    if (honeypotPopupOverlay) {
+        honeypotPopupOverlay.addEventListener('click', function(e) {
+            if (e.target === honeypotPopupOverlay) {
+                honeypotPopupOverlay.style.display = 'none';
+            }
+        });
+    }
+    // --- End New Honeypot Form Popup Handlers ---
+    
+    // Event listener for the ORIGINAL contactForm (Mais código grátis!)
+    if (contactForm && popupOverlay) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const nameInput = document.getElementById('name');
+            const contactNumberInput = document.getElementById('contact_number');
+            
+            const name = nameInput ? nameInput.value : '';
+            const contactNumber = contactNumberInput ? contactNumberInput.value : '';
+            
+            console.log('Original Contact Form submitted:', { name, contactNumber });
+            
+            // New custom event for original form submission
+            if (typeof fbq === 'function') {
+                fbq('trackCustom', 'FormSubmitted', {
+                    formId: 'contactForm',
+                    content_name: 'Original Contact Form Submission',
+                    name: name, 
+                    contactNumber: contactNumber 
+                });
+            }
+
+            // Basic Lead tracking for the original form
+            if (typeof fbq === 'function') {
+                fbq('track', 'Lead', {
+                    content_name: 'Original Contact Form Submission',
+                    content_category: 'Form',
+                    formId: 'contactForm' 
+                });
+            }
+
+            // Display the gift code message within the popup
+            const popupContent = popupOverlay.querySelector('.popup-content');
+            if (popupContent) {
+                popupContent.innerHTML = '<h3 class="popup-title">Código Recebido!</h3><p style="font-size: 16px; color: #333; margin-top: 15px;">Aqui está o seu código gratuito! <strong style="color: #4CAF50; font-size: 18px;">YFPSP6HH</strong>. Não se esqueça de resgatá-lo em nossa plataforma!</p><p style="font-size: 12px; color: #777; margin-top:20px;">Você pode fechar esta janela.</p>';
+            }
+            // Do not hide the popup automatically: popupOverlay.style.display = 'none';
+            // The user can close it with the existing X button or by clicking outside.
+        });
+    }
+
+    // Event listener for the NEW honeypotForm
+    if (honeypotForm && honeypotPopupOverlay) {
+        honeypotForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const nameInput = document.getElementById('honeypotName');
+            const contactNumberInput = document.getElementById('honeypotContactNumber');
+            const honeypotInput = document.getElementById('honeypotComments');
+
+            const name = nameInput ? nameInput.value : '';
+            const contactNumber = contactNumberInput ? contactNumberInput.value : '';
+            const honeypotValue = honeypotInput ? honeypotInput.value : '';
+
+            if (honeypotValue !== '') {
+                console.log('Honeypot triggered on Honeypot Form. Possible bot submission.');
+                document.dispatchEvent(new CustomEvent('bot', { 
+                    detail: { formId: 'honeypotForm', name: name, contactNumber: contactNumber }
+                }));
+                if (typeof fbq === 'function') {
+                    fbq('trackCustom', 'BotDetectedOnHoneypotForm', { formId: 'honeypotForm', name: name, contactNumber: contactNumber });
+                }
+                alert('Obrigado! (Honeypot Detected)');
+                honeypotPopupOverlay.style.display = 'none';
+                return;
+            }
+
+            const MAX_SUBMISSIONS_HONEYPOT = 3;
+            const TIME_WINDOW_MS_HONEYPOT = 10 * 60 * 1000; // 10 minutes
+            const storageKeyHoneypot = 'honeypotFormSubmissionTimestamps';
+
+            let submissionTimestamps = JSON.parse(localStorage.getItem(storageKeyHoneypot) || '[]');
+            const now = Date.now();
+            submissionTimestamps = submissionTimestamps.filter(timestamp => (now - timestamp) < TIME_WINDOW_MS_HONEYPOT);
+
+            if (submissionTimestamps.length >= MAX_SUBMISSIONS_HONEYPOT) {
+                console.warn('Rate limit exceeded for Honeypot Form.');
+                alert('Você tentou enviar o formulário muitas vezes. Por favor, tente novamente mais tarde. (Honeypot Form Rate Limit)');
+                return;
+            }
+            
+            document.dispatchEvent(new CustomEvent('not bot', { 
+                detail: { formId: 'honeypotForm', name: name, contactNumber: contactNumber }
+            }));
+            if (typeof fbq === 'function') {
+                fbq('trackCustom', 'NotBotDetectedOnHoneypotForm', { formId: 'honeypotForm', name: name, contactNumber: contactNumber });
+            }
+
+            submissionTimestamps.push(now);
+            localStorage.setItem(storageKeyHoneypot, JSON.stringify(submissionTimestamps));
+
+            console.log('Honeypot Form submitted:', { name, contactNumber });
+            alert('Obrigado! Seu código de presente será enviado em breve. (Honeypot Form)');
+            honeypotPopupOverlay.style.display = 'none';
+            
+            if (typeof fbq === 'function') {
+                fbq('track', 'Lead', {
+                    content_name: 'Honeypot Form Submission',
+                    content_category: 'Form',
+                    formId: 'honeypotForm'
+                });
+            }
+        });
+    }
     </script>
 </body>
 </html> 
