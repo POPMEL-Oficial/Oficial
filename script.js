@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextButton = document.querySelector('.nav-btn.next');
     
     let currentIndex = 0;
-    const itemWidth = items[0].offsetWidth + 12; // Including margin
     const totalItems = items.length;
     const indicatorsToShow = 3; // We want to show only 3 indicators
     
@@ -64,6 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     function goToSlide(index) {
+        const itemWidth = items[0].offsetWidth + 12; // Including margin - calculated dynamically
         track.scrollTo({
             left: itemWidth * index,
             behavior: 'smooth'
@@ -90,6 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Handle scroll events to update indicators
     track.addEventListener('scroll', () => {
+        const itemWidth = items[0].offsetWidth + 12; // Including margin - calculated dynamically
         const scrollPosition = track.scrollLeft;
         const newIndex = Math.round(scrollPosition / itemWidth);
         
@@ -273,6 +274,49 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
+
+    // Image Lightbox functionality
+    const lightboxOverlay = document.getElementById('imageLightboxOverlay');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxClose = document.querySelector('.lightbox-close');
+
+    items.forEach(item => {
+        const img = item.querySelector('img');
+        if (img) {
+            img.addEventListener('click', () => {
+                if (lightboxOverlay && lightboxImg) {
+                    lightboxOverlay.style.display = 'flex'; // Use flex to center content
+                    lightboxImg.src = img.src;
+
+                    // Fire Facebook Pixel custom event
+                    if (typeof fbq === 'function') {
+                        fbq('trackCustom', 'ViewCarouselImageDetail', {
+                            imageName: img.alt, // Send the alt text as a parameter
+                            imageSrc: img.src   // Optionally, send the image source
+                        });
+                    }
+                }
+            });
+        }
+    });
+
+    if (lightboxClose) {
+        lightboxClose.addEventListener('click', () => {
+            if (lightboxOverlay) {
+                lightboxOverlay.style.display = 'none';
+            }
+        });
+    }
+
+    // Close lightbox when clicking on the overlay (outside the image)
+    if (lightboxOverlay) {
+        lightboxOverlay.addEventListener('click', function(event) {
+            if (event.target === lightboxOverlay) { // Check if the click is on the overlay itself
+                lightboxOverlay.style.display = 'none';
+            }
+        });
+    }
+    // End Image Lightbox functionality
 });
 
 // Enhanced Facebook Pixel conversion tracking
@@ -322,10 +366,4 @@ document.addEventListener('DOMContentLoaded', function() {
             observers[`bonus${index}`].observe(element);
         });
     }
-});
-
-// Facebook Pixel Event Tracking
-facebookPixel: {
-    enabled: true,
-    pixelId: '711563284715041'
-} 
+}); 
